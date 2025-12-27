@@ -149,11 +149,13 @@ int main() {
 
 	return 0;
 }
+
 /*
 * записывает сообщение об ошибке в файл
 * message - сообщение об ошибке
 * открывает файл errors.log в режиме добавления и записывает сообщение
 */
+
 void log_error(const char* message) {
 
 	FILE* log_file = fopen("errors.log", "a");
@@ -163,29 +165,34 @@ void log_error(const char* message) {
 		fclose(log_file);
 	}
 }
+
 /*
 * вычисляет факторил числа n
 * n - целое неотрицательное число 
 * возвращает вещественное число
 * в случае отрицательного n записывает ошибку в log и возвращает -1.0
 */
+
 double factorial(int n) {
 	if (n < 0) {
 		log_error("Отрицательный факториал");
 		return -1.0;
 	}
 
+	
 	double result = 1.0;
 	for (int i = 2; i <= n; i++) {
 		result *= i;
 	}
 	return result;
 }
+
 /*
 * вычисляет значение функции f(x) в точке x 
 * x - аргумент функции
 * возвращает значение функции согласно кусочному определению
 */
+
 double f(double x) {
 
 	if (x < 1) {
