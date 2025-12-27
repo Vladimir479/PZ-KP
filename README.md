@@ -262,18 +262,24 @@ void tabulate(double start, double end, double step) {
 */
 
 double findX(double Y, double start, double end, double step) {
+	
 	printf("\n=== Поиск x: f(x) = %.6f ===\n", Y);
 
 	for (double x = start; x <= end; x += step) {
+		
 		double y = f(x);
 
+		
 		if (fabs(y - Y) < 0.1) {
 
+			
 			return x;
 		}
 	}
 
+	
 	printf("Решение не найдено на отрезке [%.2f, %.2f]\n", start, end);
+	
 	return -1.0;
 }
 
@@ -286,11 +292,15 @@ double findX(double Y, double start, double end, double step) {
 */
 
 double derivative(double x, double h) {
+	
 	if (h < 0.1) {
+		
 		printf("Ошибка: шаг должен быть не менее 0.1\n");
+		
 		return -1.0;
 	}
 
+	
 	return (f(x + h) - f(x - h)) / (2 * h);
 }
 
@@ -303,15 +313,20 @@ double derivative(double x, double h) {
 */ 
 
 double find_minimum(double start, double end, double step) {
+	
 	double min_val = INFINITY;
 
 	for (double x = start; x <= end; x += step) {
+		
 		double y = f(x);
+		
 		if (y < min_val) {
+			
 			min_val = y;
 
 		}
 	}
+	
 	return min_val;
 }
 
@@ -323,11 +338,15 @@ double find_minimum(double start, double end, double step) {
 * возвращает максимальное значение функции на отрезке
 */
 double find_maximum(double start, double end, double step) {
-	double max_val = -INFINITY;
+
+double max_val = -INFINITY;
 
 	for (double x = start; x <= end; x += step) {
+		
 		double y = f(x);
+		
 		if (y > max_val) {
+			
 			max_val = y;
 
 		}
