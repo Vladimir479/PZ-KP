@@ -223,23 +223,35 @@ double f(double x) {
 * в случае некорректных параметров записывает ошибку в log
 */
 
+
 void tabulate(double start, double end, double step) {
+	
 	if (start > end) {
+		
 		log_error("Начало интервала больше конца:");
+		
 		printf("Ошибка: начало интервала не может быть больше конца\n");
+		
 		return;
 	}
 
 	printf("\n===Таблица значений===\n");
+	
 	printf("\n");
+	
 	printf("| x | f(x) |\n");
+	
 	printf("|--------|--------| \n");
 
+	
 	for (double x = start; x <= end; x += step) {
+	
 		double y = f(x);
+	
 		printf("|%-8.2f|%-8.2f|\n", x, y);
 	}
 }
+
 /*
 * ищет значение x, при котором f(x) приближенно равно Y на заданном интервале
 * Y - искомое значение функции
@@ -248,6 +260,7 @@ void tabulate(double start, double end, double step) {
 * step - шаг поиска
 * возвращает найденное x или -1.0, если решение не найдено
 */
+
 double findX(double Y, double start, double end, double step) {
 	printf("\n=== Поиск x: f(x) = %.6f ===\n", Y);
 
@@ -263,6 +276,7 @@ double findX(double Y, double start, double end, double step) {
 	printf("Решение не найдено на отрезке [%.2f, %.2f]\n", start, end);
 	return -1.0;
 }
+
 /*
 * вычисляет производную функции в точке x методом центральной разности
 * x - точка, в которой вычисляется производная 
@@ -270,6 +284,7 @@ double findX(double Y, double start, double end, double step) {
 * возвращает приближенное значение производной
 * в случае слишком маленького h выводит сообщение об ошибке и возвращает -1.0
 */
+
 double derivative(double x, double h) {
 	if (h < 0.1) {
 		printf("Ошибка: шаг должен быть не менее 0.1\n");
@@ -278,6 +293,7 @@ double derivative(double x, double h) {
 
 	return (f(x + h) - f(x - h)) / (2 * h);
 }
+
 /*
 * находит минимальное значение функции на отрезке 
 * start - начало отрезка
@@ -285,6 +301,7 @@ double derivative(double x, double h) {
 * step - шаг поиска
 * возвращает минимальное значение функции на отрезке
 */ 
+
 double find_minimum(double start, double end, double step) {
 	double min_val = INFINITY;
 
@@ -297,6 +314,7 @@ double find_minimum(double start, double end, double step) {
 	}
 	return min_val;
 }
+
 /*
 * находит максимальное значение функции на отрезке
 * start - начало отрезка
